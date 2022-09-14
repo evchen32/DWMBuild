@@ -1,0 +1,18 @@
+diff a/dwm.c b/dwm.c	(rejected hunks)
+@@ -184,6 +186,7 @@ static void maprequest(XEvent *e);
+ static void monocle(Monitor *m);
+ static void motionnotify(XEvent *e);
+ static void movemouse(const Arg *arg);
++static Client *nexttagged(Client *c);
+ static Client *nexttiled(Client *c);
+ static void pop(Client *);
+ static void propertynotify(XEvent *e);
+@@ -1891,7 +1915,7 @@ updategeom(void)
+ 					m->clients = c->next;
+ 					detachstack(c);
+ 					c->mon = mons;
+-					attach(c);
++					attachaside(c);
+ 					attachstack(c);
+ 				}
+ 				if (m == selmon)
